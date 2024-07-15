@@ -21,7 +21,7 @@ gguf量子化したgemma-2-27b-itでELYZA-tasks100を自動評価します。
 
 ## 備考
 採点テンプレートは[うみゆき氏の次の記事のもの](https://soysoftware.sakura.ne.jp/archives/3850)をお借りしました。
-ライセンスは[ELYZA-task100](https://huggingface.co/datasets/elyza/ELYZA-tasks-100)に依存します。
+ライセンスは[ELYZA-task-100](https://huggingface.co/datasets/elyza/ELYZA-tasks-100)に依存します。
 
 ## 履歴
     [2024/07/15] - 初回リリース

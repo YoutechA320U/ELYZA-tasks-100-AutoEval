@@ -28,7 +28,7 @@ with open(csv_path, mode='r', encoding='utf-8',newline="") as file:
      if row[0]!="input":
         #print(row[0])
         prompt=row[0]
-        prompt_G2 = (role+"<start_of_turn>user\n"+prompt+"\nASSISTANT: ", "<end_of_turn>\n<start_of_turn>model\n")
+        prompt_G2 = (role+"<start_of_turn>user\n"+prompt+"<end_of_turn>\n<start_of_turn>model\n")
         output = llm(
             prompt=prompt_G2,
             max_tokens=1024,

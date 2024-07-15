@@ -8,7 +8,7 @@ gguf量子化したgemma-2-27b-itでELYZA-tasks100を自動評価します。
 
 ```ELYZA-tasks100-result.py```はELYZA-tasks100（```test.csv```）と```answer.csv```と```judge.csv```を結合します。```result.csv```が生成されます。
 
-## [YukiTomita-CC/gemma-2-27b-it-GGUF/](https://huggingface.co/YukiTomita-CC/gemma-2-27b-it-GGUF)gemma-2-27b-it-Q4_K_M.ggufによる自動評価例
+## [YukiTomita-CC/gemma-2-27b-it-GGUF/](https://huggingface.co/YukiTomita-CC/gemma-2-27b-it-GGUF)gemma-2-27b-it-Q4_K_M.ggufによる自動評価サンプル
 
 ||モデル名など|1回の採点での平均|
 |---|:---|---:|

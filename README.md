@@ -10,7 +10,7 @@ gguf量子化したgemma-2-27b-itでELYZA-tasks100を自動評価します。
 
 ## gemma-2-27b-it-Q4_K_M.ggufによる自動評価例
 
-|モデル名|1回の採点での平均点|
+|モデル名など|1回の採点での平均|
 |:---|---:|
 |ArrowPro-7B-KillerWhale.Q8_0.gguf|2.76|
 |Umievo-itr012-Gleipnir-7B-Q8_0.gguf|3.12|

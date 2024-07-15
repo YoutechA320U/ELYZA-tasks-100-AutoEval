@@ -10,7 +10,7 @@ gguf量子化したgemma-2-27b-itでELYZA-tasks100を自動評価します。
 
 ## [YukiTomita-CC/gemma-2-27b-it-GGUF/](https://huggingface.co/YukiTomita-CC/gemma-2-27b-it-GGUF)gemma-2-27b-it-Q4_K_M.ggufによる自動評価例
 
-|モデル名など|1回の採点での平均|
+||モデル名など|1回の採点での平均|
 |---|:---|---:|
 |1|EZO-Common-9B-gemma-2-it-Q8_0.gguf|3.79|
 |2|gemma-2-27b-it-Q4_K_M.gguf|3.75|

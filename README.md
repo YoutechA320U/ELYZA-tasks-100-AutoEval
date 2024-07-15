@@ -2,11 +2,11 @@
 
 gguf量子化したgemma-2-27b-itでELYZA-tasks100を自動評価します。
 
-```ELYZA-tasks100-ansuwer_*.py```は評価対象のggufモデルにELYZA-tasks100（test.csv）を回答させます。```answer.csv```が生成されます。
+```ELYZA-tasks100-ansuwer_*.py```は評価対象のggufモデルにELYZA-tasks100（```test.csv```）を回答させます。```answer.csv```が生成されます。
 
-```ELYZA-tasks100-judge_gemma-2.py```はgguf量子化したgemma-2-27b-itにanswer.csvを採点させます。```judge.csv```が生成されます。
+```ELYZA-tasks100-judge_gemma-2.py```はgguf量子化したgemma-2-27b-itに```answer.csv```を採点させます。```judge.csv```が生成されます。
 
-```ELYZA-tasks100-result.py```はELYZA-tasks100（test.csv）とanswer.csvとjudge.csvを結合します。```result.csv```が生成されます。
+```ELYZA-tasks100-result.py```はELYZA-tasks100（test.csv）と```answer.csv```と```judge.csv```を結合します。```result.csv```が生成されます。
 
 ## gemma-2-27b-it-Q4_K_M.ggufによる自動評価例
 

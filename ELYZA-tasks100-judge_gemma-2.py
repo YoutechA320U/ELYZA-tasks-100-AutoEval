@@ -78,11 +78,9 @@ with open(csv_path, mode='r', encoding='utf-8',newline="") as file1,open(answer_
                mirostat_eta=0.1,
                stop=["<start_of_turn>model","<end_of_turn>","<start_of_turn>user","prompt_tokens"] # ストップ。特定の文字を生成したらその文字を生成せず停止する。
         )
-        output =str(output)
-        output= output.split("', ")
-        output =output[3]
-        output =output.replace("'choices': [{'text': '", "").replace("\\n", "\n").replace("\\n", "\n").replace("\\u3000", "\u3000")\
-         .replace("!","！").replace("?","？")
+        output= output["choices"][0]["text"]
+        output =output.replace("\\n", "\n").replace("\\n", "\n").replace("\\u3000", "\u3000")\
+            .replace("!","！").replace("?","？")
         while output[-1]=="\n":
               output=output[:-1]
         while output[0]=="\n":

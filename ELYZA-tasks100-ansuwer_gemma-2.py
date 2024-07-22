@@ -57,3 +57,6 @@ with open(csv_path, mode='r', encoding='utf-8',newline="") as file:
         with open(answer_csv_path, mode='a', encoding='utf-8',newline="") as f:
             writer = csv.writer(f)
             writer.writerow([output])
+with open(answer_csv_path, mode='a', encoding='utf-8',newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow([model])

@@ -42,7 +42,7 @@ prompt = "問題, 正解例, 採点基準, 言語モデルが生成した回答�
 # 指示\n\
 「採点基準」と「正解例」を参考にして、回答を1,2,3,4,5の5段階で採点し、数字一つのみを出力し、それ以外は出力しないでください。"
 prompt += "\n"
-
+sum=0
 import csv
 csv_path="test.csv"
 answer_csv_path="answer.csv"
@@ -76,15 +76,16 @@ with open(csv_path, mode='r', encoding='utf-8',newline="") as file1,open(answer_
                mirostat_mode=0,
                mirostat_tau=5.0,
                mirostat_eta=0.1,
-               stop=["<start_of_turn>model","<end_of_turn>","<start_of_turn>user","prompt_tokens"] # ストップ。特定の文字を生成したらその文字を生成せず停止する。
+               stop=[" ","\n","<"] # ストップ。特定の文字を生成したらその文字を生成せず停止する。
         )
         output= output["choices"][0]["text"]
-        output =output.replace("\\n", "\n").replace("\\u3000", "\u3000").replace("!","！").replace("?","？")
-        while output[-1]=="\n":
-              output=output[:-1]
-        while output[0]=="\n":
-              output=output[1:] 
-        print(prompt_G2+"\n採点:"+output+"点\n")
+        print(output+"点")
+        output=int(output)
+        sum += output
         with open(judge_csv_path, mode='a', encoding='utf-8',newline="") as f:
             writer = csv.writer(f)
             writer.writerow([output])
+average=sum/100
+with open(judge_csv_path, mode='a', encoding='utf-8',newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow([average])

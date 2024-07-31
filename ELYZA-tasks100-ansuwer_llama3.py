@@ -28,7 +28,7 @@ with open(csv_path, mode='r', encoding='utf-8',newline="") as file:
      if row[0]!="input":
         #print(row[0])
         prompt=row[0]
-        prompt_L3 = (role+"<|start_header_id|>user<|end_header_id|>\n\n"+prompt+"<|eot_id|><|start_header_id|>assistant <|end_header_id|>\n\n")
+        prompt_L3 = (role+prompt+"<|eot_id|><|start_header_id|>assistant <|end_header_id|>\n\n")
         output = llm(
             prompt=prompt_L3, 
             max_tokens=1024,

@@ -9,8 +9,7 @@ llm = Llama(
 )
 
 role = "<|start_header_id|>system<|end_header_id|>\n\
-あなたは誠実で優秀なアシスタントです。<|eot_id|>\n\
-<|start_header_id|>user<|end_header_id|>"
+あなたは誠実で優秀なアシスタントです。<|eot_id|><|start_header_id|>user<|end_header_id|>"
 role += "\n\n"
 
 import csv

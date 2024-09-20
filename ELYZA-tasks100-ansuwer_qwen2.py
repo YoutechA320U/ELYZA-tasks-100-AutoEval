@@ -1,3 +1,4 @@
+#Qwen2.5にも対応しています。
 from llama_cpp import Llama #llama.cppのPythonライブラリであるllama-cpp-python
 
 model="hoge_huga.gguf" #評価対象のモデルのパスを入力。
@@ -5,7 +6,7 @@ llm = Llama(
       model_path=model,
       n_gpu_layers=-1, # #GPUにロードするレイヤー数（llama-cpp-pythonがcuda版の場合）
       n_ctx=2048, # 最大コンテキストサイズ。入力の上限。
-      flash_attn=True #Qwen2はcuda使用時Flash Attentionを有効にしないと出力が崩れる
+      flash_attn=True #Qwen2はcuda使用時Flash Attentionを有効にしないと出力が崩れる。Qwen2.5はどちらでもOK
       #last_n_tokens_size =0, # Maximum number of tokens to keep in the last_n_tokens deque.
 )
 
@@ -28,7 +29,7 @@ with open(csv_path, mode='r', encoding='utf-8',newline="") as file:
      if row[0]!="input":
         #print(row[0])
         prompt=row[0]
-        prompt_G2 = (role+"<|im_start|>\n"+prompt+"<|im_end|>\n<start_of_turn>assistant\n")
+        prompt_G2 = (role+"<|im_start|>user\n"+prompt+"<|im_end|>\n<|im_start|>assistant\n")
         output = llm(
             prompt=prompt_G2,
             max_tokens=1024,

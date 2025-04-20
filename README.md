@@ -14,8 +14,12 @@ gguf量子化したgemma-2-27b-itでELYZA-tasks100を自動評価します。
 リンクの無いものはconvert_hf_to_gguf.pyで自前で量子化したもの。
 |モデル名など|スコア|
 |:---|---:|
+|QwQ-32B-imatrix-Q5_K_M.gguf|4.19|
+|ABEJA-Qwen2.5-32b-Japanese-v0.1-IQ3.gguf|4.13|
+|ABEJA-Qwen2.5-32b-Japanese-v0.1-imatrix-Q5_K_M.gguf|4.04|
 |Qwen2.5-32B-Instruct-imatrix-Q5_K_M-3787.gguf|3.98|
 |Qwen2.5-32B-Instruct-imatrix-Q4_K_M-3787.gguf|3.92|
+|DeepSeek-R1-Distill-Qwen-32B-Japanese-imatrix-Q4_K_M.gguf|3.90|
 |gemma-2-27b-it-imatrix-Q6_K-3490.gguf|3.89|
 |[Qwen2.5-32B-Instruct-Q4_K_M.gguf](https://huggingface.co/MaziyarPanahi/Qwen2.5-32B-Instruct-GGUF)|3.88|
 |gemma-2-27b-it-Q6_K-3436.gguf|3.86|
@@ -51,3 +55,4 @@ gguf量子化したgemma-2-27b-itでELYZA-tasks100を自動評価します。
     [2024/07/22] - Qwen2に対応
     [2024/07/22] - 採点者をgemma-2-27b-it-Q6_K前提に変更
     [2024/09/20] - Qwen2.5に対応していることを追記
+    [2025/04/20] - 各回答スクリプトの出力をストリーミング化

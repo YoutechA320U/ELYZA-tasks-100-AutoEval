@@ -4,7 +4,7 @@ model="gemma-2-27b-it-Q6_K.gguf" #対象のモデルのパスを入力。
 llm = Llama(
       model_path=model,
       n_gpu_layers=-1, # #GPUにロードするレイヤー数（llama-cpp-pythonがcuda版の場合）
-      n_ctx=4096, # 最大コンテキストサイズ。入力の上限。
+      n_ctx=8192, # 最大コンテキストサイズ。入力の上限。
 )
 
 prompt = "問題, 正解例, 採点基準, 言語モデルが生成した回答が与えられます。\n\
@@ -59,7 +59,14 @@ with open(csv_path, mode='r', encoding='utf-8',newline="") as file1,open(answer_
      if row1[0]!="input":
         prompt1=prompt.replace("{input_text}",row1[0]).replace("{output_text}",row1[1]).replace("{eval_aspect}",row1[2])
      if row2[0]!="answer":
-        prompt2=prompt1.replace("{pred}",row2[0])
+        output=row2[0]
+        if output.find("think>")!=-1 :
+          # pass
+         output =''.join(output.split('</think>\n\n', 1)[1:])  
+        print(str(len(output))+"文字")
+        if len(output)>5000:
+           output="回答なし"
+        prompt2=prompt1.replace("{pred}",output)
         prompt_G2 = ("<start_of_turn>user\n"+prompt2+"<end_of_turn>\n<start_of_turn>model\n")
         output = llm(
                prompt=prompt_G2,

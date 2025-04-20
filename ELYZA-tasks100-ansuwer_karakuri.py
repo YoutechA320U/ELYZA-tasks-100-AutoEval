@@ -28,7 +28,7 @@ with open(csv_path, mode='r', encoding='utf-8',newline="") as file:
         #print(row[0])
         prompt=row[0]
         prompt_K = (role+"<|START_OF_TURN_TOKEN|><|USER_TOKEN|>\n"+prompt+"<|END_OF_TURN_TOKEN|>\n<|START_OF_TURN_TOKEN|><|CHATBOT_TOKEN|>\n")
-        output = llm(
+        response = llm(
             prompt=prompt_K, 
             max_tokens=1024,
             temperature = 0.8,
@@ -44,9 +44,17 @@ with open(csv_path, mode='r', encoding='utf-8',newline="") as file:
             mirostat_mode=0,
             mirostat_tau=5.0,
             mirostat_eta=0.1,
-            stop=["<|"] # ストップ。特定の文字を生成したらその文字を生成せず停止する。
+            stop=["<|"], # ストップ。特定の文字を生成したらその文字を生成せず停止する。
+            stream=True  # ストリーミング出力を設定
         )
-        output= output["choices"][0]["text"]
+        #ストリーミング出力の処理
+        print(prompt)
+        output = ""
+        for chunk in response:
+            output_terminal= chunk['choices'][0]['text']
+            if output_terminal:
+               output += chunk['choices'][0]['text']
+               print(chunk['choices'][0]['text'],end="",flush=True)
         output =output.replace("\\n", "\n").replace("\\u3000", "\u3000").replace("!","！").replace("?","？")
         while output[-1]=="\n":
               output=output[:-1]

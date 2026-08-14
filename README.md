@@ -1,3 +1,5 @@
+
+
 ## ELYZA-tasks100-AutoEval
 
 gguf量子化したgemma-2-27b-itでELYZA-tasks100を自動評価します。
@@ -8,7 +10,7 @@ gguf量子化したgemma-2-27b-itでELYZA-tasks100を自動評価します。
 
 ```ELYZA-tasks100-result.py```はELYZA-tasks100（```test.csv```）と```answer.csv```と```judge.csv```を結合します。```result.csv```が生成されます。
 
-## gemma-2-27b-it-Q6_K-3436.gguf(llama.cpp_b3436)による自動評価(評価/被評価共にtemplreture=0.8)
+## gemma-2-27b-it-Q6_K-3436.gguf(llama.cpp_b3436)による自動評価(評価/被評価共にtemperature=0.8)
 ※VRAM28GB環境で検証しています。
 
 リンクの無いものはconvert_hf_to_gguf.pyで自前で量子化したもの。
